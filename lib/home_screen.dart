@@ -100,11 +100,10 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Image.asset(
               "assets/images/header.png",
-              height: MediaQuery.sizeOf(context).height * .15,
-              width: MediaQuery.sizeOf(context).width,
+              height: MediaQuery.sizeOf(context).height * .18,
               fit: BoxFit.fill,
             ),
-            tabs[currintindex],
+            Expanded(child: tabs[currintindex]),
           ],
         ),
       ),
