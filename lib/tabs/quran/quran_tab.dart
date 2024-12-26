@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami/app_them.dart';
+import 'package:islami/tabs/quran/sura_item.dart';
 
 class QuranTab extends StatelessWidget {
   QuranTab({super.key});
@@ -354,56 +355,36 @@ class QuranTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "Sora List",
-            style: TextStyle(
-              fontSize: 16,
-              color: AppThem.white,
-              fontWeight: FontWeight.bold,
+    final hieght = MediaQuery.sizeOf(context).height;
+    final width = MediaQuery.sizeOf(context).width;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20.0),
+      child: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Sora List",
+              style: Theme.of(context).textTheme.titleMedium,
             ),
-          ),
-          Expanded(
-            child: ListView.builder(
+            Expanded(
+              child: ListView.separated(
                 itemCount: englishSuraNames.length,
-                itemBuilder: (_, index) => Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          children: [
-                            Text(
-                              englishSuraNames[index],
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: AppThem.white,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Text(
-                              ayatNumbers[index],
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: AppThem.white,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                        Text(
-                          arabicSuraNames[index],
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: AppThem.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ],
-                    )),
-          )
-        ],
+                itemBuilder: (_, index) => SuraItem(
+                  englishSuraName: englishSuraNames[index],
+                  arabicSuraName: arabicSuraNames[index],
+                  ayatNumber: ayatNumbers[index],
+                  index: index,
+                ),
+                separatorBuilder: (_, __) => Divider(
+                  thickness: 1,
+                  indent: width * .1,
+                  endIndent: width * .1,
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

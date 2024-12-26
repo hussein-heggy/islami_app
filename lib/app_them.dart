@@ -6,12 +6,23 @@ class AppThem {
   static const white = Color(0xFFFFFFFF);
   static ThemeData lightTheme = ThemeData();
   static ThemeData darkTheme = ThemeData(
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
-    type: BottomNavigationBarType.fixed,
-    backgroundColor: primary,
-    selectedItemColor: white,
-    unselectedItemColor: black,
-    showSelectedLabels: true,
-    showUnselectedLabels: false,
-  ));
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+      type: BottomNavigationBarType.fixed,
+      backgroundColor: primary,
+      selectedItemColor: white,
+      unselectedItemColor: black,
+      showSelectedLabels: true,
+      showUnselectedLabels: false,
+    ),
+    textTheme: const TextTheme(
+      headlineSmall:
+          TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: white),
+      titleLarge:
+          TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: white),
+      titleMedium:
+          TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: white),
+      titleSmall:
+          TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: white),
+    ),
+  );
 }
