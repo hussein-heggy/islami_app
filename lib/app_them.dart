@@ -6,6 +6,14 @@ class AppThem {
   static const white = Color(0xFFFFFFFF);
   static ThemeData lightTheme = ThemeData();
   static ThemeData darkTheme = ThemeData(
+    scaffoldBackgroundColor: black,
+    appBarTheme: const AppBarTheme(
+      backgroundColor: black,
+      foregroundColor: primary,
+      centerTitle: true,
+      titleTextStyle:
+          TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: primary),
+    ),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       type: BottomNavigationBarType.fixed,
       backgroundColor: primary,

@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:islami/app_them.dart';
+import 'package:islami/tabs/quran/sura.dart';
+import 'package:islami/tabs/quran/sura_details_screen.dart';
 
 class SuraItem extends StatelessWidget {
-  String englishSuraName;
-  String arabicSuraName;
-  String ayatNumber;
-  int index;
-  SuraItem(
-      {required this.englishSuraName,
-      required this.arabicSuraName,
-      required this.ayatNumber,
-      required this.index,
-      super.key});
+  Sura sura;
+  SuraItem({required this.sura, super.key});
 
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context).pushNamed(
+          SuraDetailsScreen.routeName,
+          arguments: sura,
+        );
+      },
       child: Row(
         children: [
           Container(
@@ -33,23 +31,23 @@ class SuraItem extends StatelessWidget {
               ),
             ),
             child: Text(
-              "${index + 1}",
+              "${sura.indexNum}",
               style: textTheme.titleSmall,
             ),
           ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(englishSuraName, style: textTheme.titleLarge),
+              Text(sura.englishSuraName, style: textTheme.titleLarge),
               Text(
-                " $ayatNumber verses",
+                " ${sura.ayatNumber} verses",
                 style: textTheme.titleSmall,
               ),
             ],
           ),
-          Spacer(),
+          const Spacer(),
           Text(
-            arabicSuraName,
+            sura.arabicSuraName,
             style: textTheme.titleLarge,
           ),
         ],
