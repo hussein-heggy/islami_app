@@ -7,7 +7,7 @@ import 'package:islami/tabs/sebha/sebha_tab.dart';
 import 'package:islami/tabs/time/time_tab.dart';
 
 class HomeScreen extends StatefulWidget {
-  static String homeScreen = "/home";
+  static String routeName = "/home";
   const HomeScreen({super.key});
 
   @override
